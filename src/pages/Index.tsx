@@ -104,6 +104,13 @@ http://www.mamba.ru/anketa.phtml?oid=826****
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      {/* Заголовок страницы */}
+      <div className="text-center py-6 no-print">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-red-600 via-pink-600 to-purple-700 bg-clip-text text-transparent">
+          Результат проведённой мини-проверки на верность
+        </h1>
+      </div>
+      
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <div className="container mx-auto px-4 py-6 max-w-6xl">
           
@@ -114,7 +121,7 @@ http://www.mamba.ru/anketa.phtml?oid=826****
                 <Button 
                   variant="ghost" 
                   onClick={() => setActiveTab(activeTab === 'report' ? 'settings' : 'report')}
-                  className="bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-700 hover:to-red-800 px-6 py-2 rounded-lg font-semibold shadow-lg"
+                  className="bg-gradient-to-r from-blue-500 to-cyan-600 text-white hover:from-blue-600 hover:to-cyan-700 px-6 py-2 rounded-lg font-semibold shadow-lg"
                 >
                   <Icon name="Heart" className="mr-2" size={18} />
                   Верность.Про
@@ -123,10 +130,10 @@ http://www.mamba.ru/anketa.phtml?oid=826****
                 <Button 
                   onClick={exportToPDF}
                   variant="outline"
-                  className="border-red-200 text-red-700 hover:bg-red-50"
+                  className="bg-gray-500 hover:bg-gray-600 text-white border-gray-500 hover:border-gray-600"
                 >
-                  <Icon name="Hearts" className="mr-2" size={18} />
-                  Экспорт PDF
+                  <Icon name="Heart" className="mr-2" size={18} />
+                  Мини проверка на верность
                 </Button>
               </div>
               
@@ -313,12 +320,12 @@ http://www.mamba.ru/anketa.phtml?oid=826****
               </CardHeader>
               <CardContent className="p-8">
                 <div className="text-center space-y-6">
-                  <div className="bg-white p-6 rounded-xl shadow-md border-2 border-red-200">
-                    <h3 className="text-2xl font-bold text-red-800 mb-2">Ваш индивидуальный промокод</h3>
-                    <div className="text-3xl font-mono font-bold text-red-600 bg-red-100 p-4 rounded-lg inline-block">
+                  <div className="bg-white p-4 rounded-xl shadow-md border-2 border-red-200">
+                    <h3 className="text-lg font-bold text-red-800 mb-2">Ваш индивидуальный промокод</h3>
+                    <div className="text-2xl font-mono font-bold text-red-600 bg-red-100 p-3 rounded-lg inline-block">
                       {reportData.promoCode}
                     </div>
-                    <p className="text-sm text-slate-600 mt-2">Скидка {reportData.promoDiscount} действует только сегодня!</p>
+                    <p className="text-xs text-slate-600 mt-2">Скидка {reportData.promoDiscount} действует только сегодня!</p>
                   </div>
                   
                   <div className="text-slate-700 space-y-4">
@@ -327,6 +334,9 @@ http://www.mamba.ru/anketa.phtml?oid=826****
                     </p>
                     <p>
                       Мы предлагаем вам воспользоваться услугой полной проверки верности вашей второй половины. В полном отчете вы получите исчерпывающую и точную информацию, которая позволит вам принять обоснованные решения и окончательно развеять все сомнения.
+                    </p>
+                    <p className="text-sm bg-blue-50 p-3 rounded-lg">
+                      📝 <strong>Что нужно сделать:</strong> Напишите в наше сообщество ВК номер выданного промокода с пометкой "Полная проверка на верность". 
                     </p>
                   </div>
                   
@@ -405,9 +415,9 @@ http://www.mamba.ru/anketa.phtml?oid=826****
             </Card>
 
             {/* Финальный CTA */}
-            <Card className="shadow-2xl border-red-200 bg-gradient-to-br from-red-600 to-red-700 text-white">
-              <CardContent className="p-8 text-center">
-                <h2 className="text-3xl font-bold mb-4">Узнайте полную информацию, которую скрывает ваша вторая половина прямо сейчас!</h2>
+            <Card className="shadow-lg border-red-200 bg-gradient-to-br from-red-600 to-red-700 text-white">
+              <CardContent className="p-6 text-center">
+                <h2 className="text-xl font-bold mb-4">Узнайте полную информацию, которую скрывает ваша вторая половина прямо сейчас!</h2>
                 <Button 
                   asChild 
                   size="lg"
